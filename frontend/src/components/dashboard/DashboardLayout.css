@@ -1,0 +1,30 @@
+.dash-layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.dash-main {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.dash-content {
+  padding: 28px;
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .dash-main {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .dash-content {
+    padding: 18px;
+  }
+}
