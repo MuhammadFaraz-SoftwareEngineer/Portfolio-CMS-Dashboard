@@ -8,6 +8,7 @@ const {
   updateProject,
   deleteProject,
   getProjectStats,
+  getPublicProjects,
 } = require("../controllers/project.controller");
 const {
   createProjectValidation,
@@ -17,6 +18,7 @@ const {
 const validate = require("../middleware/validate.middleware");
 const { protect } = require("../middleware/auth.middleware");
 
+router.get("/public", getPublicProjects);
 router.get("/", protect, getAllProjects);
 router.get("/stats", protect, getProjectStats);
 router.get("/:id", protect, idParamValidation, validate, getProject);

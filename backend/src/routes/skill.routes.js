@@ -7,6 +7,7 @@ const {
   updateSkill,
   deleteSkill,
   getSkillStats,
+  getPublicSkills,
 } = require("../controllers/skill.controller");
 const {
   createSkillValidation,
@@ -16,6 +17,7 @@ const {
 const validate = require("../middleware/validate.middleware");
 const { protect } = require("../middleware/auth.middleware");
 
+router.get("/public", getPublicSkills);
 router.get("/", protect, getAllSkills);
 router.get("/stats", protect, getSkillStats);
 router.post("/", protect, createSkillValidation, validate, createSkill);

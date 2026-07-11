@@ -6,6 +6,7 @@ const {
   updateProfile,
   updateProfileImage,
   removeProfileImage,
+  getPublicProfile,
 } = require("../controllers/user.controller");
 const {
   updateProfileValidation,
@@ -14,6 +15,7 @@ const {
 const validate = require("../middleware/validate.middleware");
 const { protect } = require("../middleware/auth.middleware");
 
+router.get("/public-profile", getPublicProfile);
 router.get("/profile", protect, getProfile);
 router.put("/profile", protect, updateProfileValidation, validate, updateProfile);
 router.put("/profile/image", protect, updateImageValidation, validate, updateProfileImage);

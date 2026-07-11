@@ -32,12 +32,6 @@ const MessagesIcon = () => (
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
   </svg>
 );
-const PortfolioIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8Z" />
-    <circle cx="12" cy="12" r="3" />
-  </svg>
-);
 const LogoutIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" /><path d="M16 17l5-5-5-5" /><path d="M21 12H9" />
@@ -51,7 +45,6 @@ const navItems = [
   { to: "/dashboard/skills", label: "Skills", icon: <SkillsIcon /> },
   { to: "/dashboard/projects", label: "Projects", icon: <ProjectsIcon /> },
   { to: "/dashboard/messages", label: "Messages", icon: <MessagesIcon /> },
-  { to: "/dashboard/my-portfolio", label: "My Portfolio", icon: <PortfolioIcon /> },
 ];
 
 export default function Sidebar({ open, onClose, onLogout }) {

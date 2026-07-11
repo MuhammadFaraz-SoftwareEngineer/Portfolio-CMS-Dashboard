@@ -38,10 +38,22 @@ const getSkillStats = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, stats });
 });
 
+const getPublicSkills = asyncHandler(async (req, res) => {
+  const skills = await skillService.getAllSkills();
+  const grouped = {};
+  skills.forEach((s) => {
+    if (!grouped[s.category]) grouped[s.category] = [];
+    grouped[s.category].push(s);
+  });
+  const skillGroups = Object.entries(grouped).map(([category, items]) => ({ category, skills: items }));
+  res.status(200).json({ success: true, skillGroups });
+});
+
 module.exports = {
   getAllSkills,
   createSkill,
   updateSkill,
   deleteSkill,
   getSkillStats,
+  getPublicSkills,
 };

@@ -33,9 +33,15 @@ const removeProfileImage = asyncHandler(async (req, res) => {
   });
 });
 
+const getPublicProfile = asyncHandler(async (req, res) => {
+  const user = await userService.getPublicProfile();
+  res.status(200).json({ success: true, user });
+});
+
 module.exports = {
   getProfile,
   updateProfile,
   updateProfileImage,
   removeProfileImage,
+  getPublicProfile,
 };

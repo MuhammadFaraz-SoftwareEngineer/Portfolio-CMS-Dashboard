@@ -10,7 +10,7 @@ import AboutManager from "./pages/dashboard/AboutManager";
 import SkillsManager from "./pages/dashboard/SkillsManager";
 import ProjectsManager from "./pages/dashboard/ProjectsManager";
 import Messages from "./pages/dashboard/Messages";
-import MyPortfolio from "./pages/dashboard/MyPortfolio";
+import PublicPortfolio from "./pages/PublicPortfolio";
 
 function App() {
   const { user, loading } = useAuth();
@@ -25,7 +25,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Navigate to={user ? "/dashboard" : "/login"} replace />} />
+      <Route path="/" element={<PublicPortfolio />} />
       <Route path="/login" element={user ? <Navigate to="/dashboard" replace /> : <Login />} />
       <Route path="/register" element={user ? <Navigate to="/dashboard" replace /> : <Register />} />
       <Route
@@ -42,7 +42,6 @@ function App() {
         <Route path="skills" element={<SkillsManager />} />
         <Route path="projects" element={<ProjectsManager />} />
         <Route path="messages" element={<Messages />} />
-        <Route path="my-portfolio" element={<MyPortfolio />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

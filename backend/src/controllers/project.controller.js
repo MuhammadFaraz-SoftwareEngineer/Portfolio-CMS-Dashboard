@@ -43,6 +43,12 @@ const getProjectStats = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, stats });
 });
 
+const getPublicProjects = asyncHandler(async (req, res) => {
+  const { search, category } = req.query;
+  const projects = await projectService.getAllProjects({ search, category });
+  res.status(200).json({ success: true, projects });
+});
+
 module.exports = {
   getAllProjects,
   getProject,
@@ -50,4 +56,5 @@ module.exports = {
   updateProject,
   deleteProject,
   getProjectStats,
+  getPublicProjects,
 };

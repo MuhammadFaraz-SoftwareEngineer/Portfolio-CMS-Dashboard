@@ -2,6 +2,12 @@ const User = require("../models/user.model");
 const ApiError = require("../utils/ApiError");
 const { sanitizeUser } = require("./auth.service");
 
+const getPublicProfile = async () => {
+  const user = await User.findOne({}).select("-password");
+  if (!user) throw new ApiError(404, "Profile not found");
+  return user;
+};
+
 const getProfile = async (userId) => {
   const user = await User.findById(userId);
   if (!user) throw new ApiError(404, "User not found");
@@ -57,4 +63,5 @@ module.exports = {
   updateProfile,
   updateProfileImage,
   removeProfileImage,
+  getPublicProfile,
 };

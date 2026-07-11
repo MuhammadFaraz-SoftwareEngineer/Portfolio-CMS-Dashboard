@@ -12,7 +12,6 @@ const TITLES = {
   "/dashboard/skills": "Skills",
   "/dashboard/projects": "Projects",
   "/dashboard/messages": "Messages",
-  "/dashboard/my-portfolio": "My Portfolio",
 };
 
 export default function DashboardLayout() {
